@@ -22,13 +22,13 @@ export class StringConverter {
       .map((binStr) => {
         const binNum: number = parseInt(binStr, 10)
         if (binNum === 1) {
-          return '\u200b'
+          return this.ZWS
         } else if (binNum === 0) {
-          return '\u200c'
+          return this.ZWNJ
         }
-        return '\u200d'
+        return this.ZWJ
       })
-      .join('\ufeff')
+      .join(this.ZWNBS)
     return invRes
   }
 
